@@ -9,8 +9,14 @@
   <script type="text/javascript">
     var detectDevice = function () {
       console.log(window.navigator);
-      var node = document.createElement("H4");                 // Create a <li> node
-      var string = "System platform is " + window.navigator.platform;
+      var node = document.createElement("H4"),
+          checkWindowsPtn = /(w|W)in(.*)/,
+          checkMacPtn = /(m|M)ac(.*)/,
+          displayString = "Sorry, Not supporting system";
+
+      if(checkWindowsPtn || checkMacPtn) {
+        displayString = "System platform is " + window.navigator.platform;
+      }
       var textnode = document.createTextNode(string);         // Create a text node
       node.appendChild(textnode);                              // Append the text to <li>
       document.getElementById("platform").appendChild(node);

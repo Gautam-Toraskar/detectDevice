@@ -17,7 +17,7 @@
       if(checkWindowsPtn || checkMacPtn) {
         displayString = "System platform is " + window.navigator.platform;
       }
-      var textnode = document.createTextNode(string);         // Create a text node
+      var textnode = document.createTextNode(displayString);         // Create a text node
       node.appendChild(textnode);                              // Append the text to <li>
       document.getElementById("platform").appendChild(node);
     }

@@ -6,6 +6,7 @@
   <div class="container">
     <p>hello</p>
     <h1 id="platform"></h1>
+    <div id="data"></div>
   </div>
   <script type="text/javascript">
     var detectDevice = function () {
@@ -22,6 +23,10 @@
       var textnode = document.createTextNode(displayString);         // Create a text node
       node.appendChild(textnode);                              // Append the text to <li>
       document.getElementById("platform").appendChild(node);
+
+      var navigator = document.createTextNode(window.navigator.userAgent);
+      document.getElementById("data").appendChild(navigator);
+      
     }
     detectDevice();
   </script>

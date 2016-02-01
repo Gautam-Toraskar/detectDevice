@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>detect device</title>
+</head>
+<body>
+  <div class="container">
+    <h1 id="platform"></h1>
+  </div>
+  <script type="text/javascript">
+    var detectDevice = function () {
+      console.log(window.navigator);
+      var node = document.createElement("H4");                 // Create a <li> node
+      var string = "System platform is " + window.navigator.platform;
+      var textnode = document.createTextNode(string);         // Create a text node
+      node.appendChild(textnode);                              // Append the text to <li>
+      document.getElementById("platform").appendChild(node);
+    }
+    detectDevice();
+  </script>
+</body>
+</html>

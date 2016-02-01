@@ -15,7 +15,8 @@
           checkMacPtn = /(m|M)ac(.*)/,
           displayString = "Sorry, Not supporting system";
 
-      if(checkWindowsPtn || checkMacPtn) {
+      console.log(checkMacPtn.test(window.navigator.platform));
+      if(checkWindowsPtn.test(window.navigator.platform) || checkMacPtn.test(window.navigator.platform)) {
         displayString = "System platform is " + window.navigator.platform;
       }
       var textnode = document.createTextNode(displayString);         // Create a text node

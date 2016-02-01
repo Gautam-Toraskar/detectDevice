@@ -46,19 +46,16 @@
   var detectDevice = function() {
     console.log(window.navigator);
     var node = document.createElement("H4"),
-      checkWindowsPtn = /(w|W)in(.*)/,
-      checkMacPtn = /(m|M)ac(.*)/,
       displayString = window.navigator.platform + ": Sorry, Not supporting system",
-      userAgent = window.navigator.userAgent.toLowerCase(),
-      device = userAgent;
+      device = false;
 
     console.log(window.navigator.platform);
     if(isMobile.Android() && mobileAndTabletcheck()) {
       displayString = "System platform is " + window.navigator.platform;
+      device = "android";
     } else if(isMobile.MacOrWindows() && !mobileAndTabletcheck()) {
       displayString = "System platform is " + window.navigator.platform;
-    } else {
-      displayString = "Not supported";
+      device = "windowOrMac";
     }
     var textnode = document.createTextNode(displayString); // Create a text node
     node.appendChild(textnode); // Append the text to <li>
@@ -66,9 +63,9 @@
 
     var navigator = document.createTextNode(window.navigator.userAgent);
     document.getElementById("data").appendChild(navigator);
-
+    return device;
   }
-  detectDevice();
+  console.log(detectDevice());
   </script>
 </body>
 

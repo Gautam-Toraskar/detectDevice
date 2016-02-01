@@ -12,7 +12,6 @@
   </div>
   <script type="text/javascript">
   var isMobile = {
-    var userAgent = navigator.userAgent;
     Android: function() {
       return /android/i.test(navigator.userAgent);
     },
@@ -32,7 +31,7 @@
       return /Mac/i.test(navigator.userAgent);
     },
     MacOrWindows: function() {
-      return (isMobile.windows() || isMobile.Mac());
+      return (isMobile.WindowsDesktop() || isMobile.Mac());
     }
   };
 
